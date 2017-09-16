@@ -5,9 +5,51 @@
     xmlns:local="using:CartolaUWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Background="White"
+    RequestedTheme="Dark"
+    >
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    </Grid>
+    <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
+               CompactPaneLength="50" OpenPaneLength="200" >
+        <SplitView.Pane>
+            <StackPanel Background="Gray">
+                <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
+                    Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="Mercado" FontFamily="Segoe MDL2 Assets" Content="&#xE13C;"
+                    Width="50" Height="50" Background="Transparent" />
+                    <TextBlock Text="Mercado" FontSize="18" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="Patrocionadores" FontFamily="Segoe MDL2 Assets" Content="&#xE19F;"
+                    Width="50" Height="50" Background="Transparent" />
+                    <TextBlock Text="Patrocionadores" FontSize="18" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="Campeonato" FontFamily="Segoe MDL2 Assets" Content="&#xE129;"
+                        Width="50" Height="50" Background="Transparent" />
+                    <TextBlock Text="Campeonato" FontSize="18" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="Jogadores" FontFamily="Segoe MDL2 Assets" Content="&#xE13D;"
+                        Width="50" Height="50" Background="Transparent" />
+                    <TextBlock Text="Jogadores" FontSize="18" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="Clubes" FontFamily="Segoe MDL2 Assets" Content="&#xE83D;"
+                        Width="50" Height="50" Background="Transparent" />
+                    <TextBlock Text="Clubes" FontSize="18" VerticalAlignment="Center" />
+                </StackPanel>
+            </StackPanel>
+        </SplitView.Pane>
+        <SplitView.Content>
+            <Grid>
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Name="wellcome" FontSize="18" FontWeight="Bold" Margin="0, 40"></TextBlock>
+                </StackPanel>
+                <Frame x:Name="contentFrame"/>
+            </Grid>
+        </SplitView.Content>
+    </SplitView>
 </Page>
