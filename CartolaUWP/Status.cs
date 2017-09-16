@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 namespace CartolaUWP
 {
     [DataContract]
-    class MercadoStatus
+    class Status
     {
-        public MercadoStatus()
+        public Status()
         {
         }
 
-        public MercadoStatus(int RodadaAtual, int StatusMercado, int EsquemaDefaultId, int CartoletaInicial,
+        public Status(int RodadaAtual, int StatusMercado, long EsquemaDefaultId, int CartoletaInicial,
             int MaxLigasFree, int MaxLigasPro, int MaxLigasMatamataFree, int MaxLigasMatamataPro,
             int MaxLigasPatrocinadasFree, int MaxLigasPatrocinadasProNum, bool GameOver, int Temporada, bool Reativar,
             int TimesEscalados, Fechamento Fechamento, bool MercadoPosRodada, string Aviso, string AvisoUrl)
@@ -46,7 +46,7 @@ namespace CartolaUWP
         public int StatusMercado { get; set; }
 
         [DataMember(Name = "esquema_default_id")]
-        public int EsquemaDefaultId { get; set; }
+        public long EsquemaDefaultId { get; set; }
 
         [DataMember(Name = "cartoleta_inicial")]
         public int CartoletaInicial { get; set; }

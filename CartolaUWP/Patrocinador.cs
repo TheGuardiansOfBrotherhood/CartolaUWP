@@ -14,7 +14,7 @@ namespace CartolaUWP
         {
         }
 
-        public Patrocinador(int LigaEditorialId, int LigaId, int ServicoCadun, string CorNomeLiga, string TipoRanking,
+        public Patrocinador(long LigaEditorialId, long LigaId, int ServicoCadun, string CorNomeLiga, string TipoRanking,
             string UrlLink, string UrlEditoriaGe, int PosicaoInicial, string AutorizacaoPromocao, string ImgBackground,
             string ImgMarcaPatrocinador, string ImgMarcaPatrocinadorPng, string Nome, bool Optin, string UrlTermoUso)
         {
@@ -36,10 +36,10 @@ namespace CartolaUWP
         }
 
         [DataMember(Name = "liga_editorial_id")]
-        public int LigaEditorialId { get; set; }
+        public long LigaEditorialId { get; set; }
 
         [DataMember(Name = "liga_id")]
-        public int LigaId { get; set; }
+        public long LigaId { get; set; }
 
         [DataMember(Name = "servico_cadun")]
         public int ServicoCadun { get; set; }

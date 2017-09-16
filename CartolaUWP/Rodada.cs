@@ -14,7 +14,7 @@ namespace CartolaUWP
         {
         }
 
-        public Rodada(int RodadaId, string Inicio, string Fim)
+        public Rodada(long RodadaId, string Inicio, string Fim)
         {
             this.RodadaId = RodadaId;
             this.Inicio = Inicio;
@@ -22,7 +22,7 @@ namespace CartolaUWP
         }
 
         [DataMember(Name = "rodada_id")]
-        public int RodadaId { get; set; }
+        public long RodadaId { get; set; }
 
         [DataMember(Name = "inicio")]
         public string Inicio { get; set; }
