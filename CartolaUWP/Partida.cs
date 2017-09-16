@@ -14,7 +14,7 @@ namespace CartolaUWP
         {
         }
 
-        public Partida(int PartidaId, int ClubeCasaId, int ClubeCasaPosicao, int ClubeVisitanteId,
+        public Partida(long PartidaId, long ClubeCasaId, int ClubeCasaPosicao, long ClubeVisitanteId,
             string[] AproveitamentoMandante, string[] AproveitamentoVisitante, int ClubeVisitantePosicao,
             string PartidaData, string Local, bool Valida, string PlacarOficialMandante, string PlacarOficialVisitante,
             string UrlConfronto, string UrlTransmissao)
@@ -36,16 +36,16 @@ namespace CartolaUWP
         }
 
         [DataMember(Name = "partida_id")]
-        public int PartidaId { get; set; }
+        public long PartidaId { get; set; }
 
         [DataMember(Name = "clube_casa_id")]
-        public int ClubeCasaId { get; set; }
+        public long ClubeCasaId { get; set; }
 
         [DataMember(Name = "clube_casa_posicao")]
         public int ClubeCasaPosicao { get; set; }
 
         [DataMember(Name = "clube_visitante_id")]
-        public int ClubeVisitanteId { get; set; }
+        public long ClubeVisitanteId { get; set; }
 
         [DataMember(Name = "aproveitamento_mandante")]
         public string[] AproveitamentoMandante { get; set; }
