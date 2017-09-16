@@ -93,13 +93,21 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Atleta.cs" />
+    <Compile Include="Clube.cs" />
+    <Compile Include="Escudos.cs" />
+    <Compile Include="MercadoDestaque.cs" />
     <Compile Include="Fechamento.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MercadoStatus.cs" />
+    <Compile Include="Status.cs" />
+    <Compile Include="MitoRodada.cs" />
+    <Compile Include="Partida.cs" />
     <Compile Include="Patrocinador.cs" />
+    <Compile Include="PosRodadaDestaque.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rodada.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
