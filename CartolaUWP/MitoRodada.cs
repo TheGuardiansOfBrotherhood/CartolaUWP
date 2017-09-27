@@ -14,12 +14,48 @@ namespace CartolaUWP
         {
         }
 
-        public MitoRodada(long TimeId, long ClubeId, long EsquemaId, long CadunId)
+        public MitoRodada(long TimeId, long ClubeId, long EsquemaId, long CadunId, long FacebookId, string FotoPerfil,
+            string Nome, string NomeCartola, string Slug, int TipoEscudo, string CorFundoEscudo, string CorBordaEscudo,
+            string CorPrimariaEstampaEscudo, string CorSecundariaEstampaEscudo, string UrlEscudoSvg, string UrlEscudoPng,
+            string UrlCamisaSvg, string UrlCamisaPng, string UrlEscudoPlaceholderPng, string UrlCamisaPlaceholderPng,
+            int TipoEstampaEscudo, int TipoAdorno, int TipoCamisa, int TipoEstampaCamisa, string CorCamisa,
+            string CorPrimariaEstampaCamisa, string CorSecundariaEstampaCamisa, long RodadaTimeId, bool Assinante,
+            bool CadastroCompleto, long Patrocinador1Id, long Patrocinador2Id, int TemporadaInicial, bool Simplificado)
         {
             this.TimeId = TimeId;
             this.ClubeId = ClubeId;
             this.EsquemaId = EsquemaId;
             this.CadunId = CadunId;
+            this.FacebookId = FacebookId;
+            this.FotoPerfil = FotoPerfil;
+            this.Nome = Nome;
+            this.NomeCartola = NomeCartola;
+            this.Slug = Slug;
+            this.TipoEscudo = TipoEscudo;
+            this.CorFundoEscudo = CorFundoEscudo;
+            this.CorBordaEscudo = CorBordaEscudo;
+            this.CorPrimariaEstampaEscudo = CorPrimariaEstampaEscudo;
+            this.CorSecundariaEstampaEscudo = CorSecundariaEstampaEscudo;
+            this.UrlEscudoSvg = UrlEscudoSvg;
+            this.UrlEscudoPng = UrlEscudoPng;
+            this.UrlCamisaSvg = UrlCamisaSvg;
+            this.UrlCamisaPng = UrlCamisaPng;
+            this.UrlEscudoPlaceholderPng = UrlEscudoPlaceholderPng;
+            this.UrlCamisaPlaceholderPng = UrlCamisaPlaceholderPng;
+            this.TipoEstampaEscudo = TipoEstampaEscudo;
+            this.TipoAdorno = TipoAdorno;
+            this.TipoCamisa = TipoCamisa;
+            this.TipoEstampaCamisa = TipoEstampaCamisa;
+            this.CorCamisa = CorCamisa;
+            this.CorPrimariaEstampaCamisa = CorPrimariaEstampaCamisa;
+            this.CorSecundariaEstampaCamisa = CorSecundariaEstampaCamisa;
+            this.RodadaTimeId = RodadaTimeId;
+            this.Assinante = Assinante;
+            this.CadastroCompleto = CadastroCompleto;
+            this.Patrocinador1Id = Patrocinador1Id;
+            this.Patrocinador2Id = Patrocinador2Id;
+            this.TemporadaInicial = TemporadaInicial;
+            this.Simplificado = Simplificado;
         }
 
         [DataMember(Name = "time_id")]
