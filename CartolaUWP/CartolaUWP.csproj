@@ -99,7 +99,6 @@
     </Compile>
     <Compile Include="Clube.cs" />
     <Compile Include="Clubes.cs" />
-    <Compile Include="ClubesManager.cs" />
     <Compile Include="ClubesParticipantes.xaml.cs">
       <DependentUpon>ClubesParticipantes.xaml</DependentUpon>
     </Compile>
