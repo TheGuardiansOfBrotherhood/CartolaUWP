@@ -30,6 +30,10 @@ namespace CartolaUWP
             MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
         }
 
+        private void Campeonato_Click(object sender, RoutedEventArgs e)
+        {
+            contentFrame.Navigate(typeof(Campeonato));
+        }
         private void Clubes_Click(object sender, RoutedEventArgs e)
         {
             contentFrame.Navigate(typeof(ClubesParticipantes));

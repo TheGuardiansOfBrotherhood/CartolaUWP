@@ -94,6 +94,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Atleta.cs" />
+    <Compile Include="Campeonato.xaml.cs">
+      <DependentUpon>Campeonato.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Clube.cs" />
     <Compile Include="Clubes.cs" />
     <Compile Include="ClubesParticipantes.xaml.cs">
@@ -112,6 +115,7 @@
     <Compile Include="PosRodadaDestaque.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rodada.cs" />
+    <Compile Include="StringFormatConverter.cs" />
     <Compile Include="Time.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +125,9 @@
     <None Include="CartolaUWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Properties\Default.rd.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Assets\web_hi_res_512.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -136,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Campeonato.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ClubesParticipantes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -148,6 +159,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>5.2.3</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.Serialization.Json">
+      <Version>4.3.0</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
