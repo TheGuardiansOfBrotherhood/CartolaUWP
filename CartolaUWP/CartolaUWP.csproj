@@ -124,14 +124,11 @@
     <None Include="CartolaUWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Content Include="Properties\Default.rd.xml">
       <SubType>Designer</SubType>
     </Content>
-=======
     <Content Include="Assets\web_hi_res_512.png" />
     <Content Include="Properties\Default.rd.xml" />
->>>>>>> development
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />
@@ -145,11 +142,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-<<<<<<< HEAD
     <Page Include="Campeonato.xaml">
-=======
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ClubesParticipantes.xaml">
->>>>>>> development
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
