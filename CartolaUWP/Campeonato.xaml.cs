@@ -6,24 +6,26 @@ using Windows.UI.Xaml.Controls;
 
 namespace CartolaUWP
 {
-    /// <summary>
-    /// Uma página vazia que pode ser usada isoladamente ou navegada dentro de um Quadro.
-    /// </summary>
     public sealed partial class Campeonato : Page
     {
+
+        const string URL_RODADAS = "https://api.cartolafc.globo.com/rodadas";
+
         public Campeonato()
         {
             this.InitializeComponent();
 
-            this.Load();
+            this.LoadCampeonatos();
         }
 
-        private void Load()
+        public void LoadCampeonatos()
         {
-            Uri uri = new Uri("https://api.cartolafc.globo.com/rodadas", UriKind.Absolute);
+            Uri uri = new Uri(URL_RODADAS, UriKind.Absolute);
+
             var request = (HttpWebRequest) WebRequest.Create(uri);
             request.Method = "GET";
             request.Accept = "application/json";
+            request.Headers[HttpRequestHeader.UserAgent] = ".NET Framework Test Client";
             request.BeginGetResponse((result) =>
             {
                 var req = (HttpWebRequest)result.AsyncState;
@@ -32,18 +34,12 @@ namespace CartolaUWP
                 if (stream != null)
                 {
                     var serializer = new DataContractJsonSerializer(typeof(List<Rodada>));
+                    var Rodadas = (List<Rodada>) serializer.ReadObject(stream);
 
-                    var results = (List<Rodada>) serializer.ReadObject(stream);
-                    if (results != null)
+                    this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
-                        this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-                        {
-                            if (results != null)
-                            {
-
-                            }
-                        }).AsTask().Wait();
-                    }
+                        this.DataContext = Rodadas;
+                    }).AsTask().Wait();
                 }
             },
             request);

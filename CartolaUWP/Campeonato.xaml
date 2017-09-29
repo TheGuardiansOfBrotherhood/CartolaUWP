@@ -5,12 +5,50 @@
     xmlns:local="using:CartolaUWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:conv="using:CartolaUWP" 
     mc:Ignorable="d">
+    <Page.Resources>
+        <conv:StringFormatConverter x:Name="toStringFormatConverter"/>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Pivot Title="Campeonato">
             <PivotItem Header="Rodadas">
-                <Grid/>
+                <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                    <StackPanel Background="#FAFAFA" Orientation="Vertical">
+                        <StackPanel Background="#FF9800" Orientation="Horizontal">
+                            <Image Margin="5,5,5,5" Width="40" Height="40" Source="Assets/web_hi_res_512.png"/>
+                            <TextBlock Foreground="White" Margin="0,15,0,15">CartolaFC</TextBlock>
+                        </StackPanel>
+                        <ScrollViewer Height="590">
+                            <ListBox Name="Listagem" ItemsSource="{Binding}" Margin="0,0,0,40" >
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel VirtualizingStackPanel.VirtualizationMode="Recycling"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate x:DataType="local:Rodada">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical" Width="350">
+                                                <TextBlock FontWeight="Bold">
+                                                    <Run Text="{Binding RodadaId}"/>
+                                                    <Run Text="ª rodada"/>
+                                                </TextBlock>
+                                                <TextBlock>
+                                                    <Run Text="De "/>
+                                                    <Run Text="{Binding Inicio, Converter={StaticResource toStringFormatConverter}}"/>
+                                                    <Run Text=" à "/>
+                                                    <Run Text="{Binding Fim, Converter={StaticResource toStringFormatConverter}}"/>
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </ScrollViewer>
+                    </StackPanel>
+                </Grid>
             </PivotItem>
             <PivotItem Header="PivotItem 1">
                 <Grid/>
