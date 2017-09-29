@@ -8,35 +8,73 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel Background="#FAFAFA" Orientation="Vertical">
-            <StackPanel Background="#FF9800" Orientation="Horizontal">
-                <Image Margin="5,5,5,5" Width="40" Height="40" Source="Assets/web_hi_res_512.png"/>
-                <TextBlock Foreground="White" Margin="0,15,0,15">CartolaFC</TextBlock>
+        <StackPanel Background="#FF9800" Orientation="Vertical">
+            <StackPanel Background="#F57C00" Orientation="Horizontal">
+                <Image Margin="5,5,5,5" Width="40" Height="40" Source="Assets/web_hi_res_512.png" />
+                <TextBlock Foreground="White" Margin="0,15,0,15" Text="CartolaFC"></TextBlock>
             </StackPanel>
-            <ScrollViewer Height="590">
-                <ListBox Name="Listagem" ItemsSource="{Binding}" Margin="0,0,0,40" >
-                    <ListBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <VirtualizingStackPanel VirtualizingStackPanel.VirtualizationMode="Recycling"/>
-                        </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Width="45" Height="45" Margin="0,0,15,0">
-                                    <Image.Source>
-                                        <BitmapImage UriSource="{Binding Escudos.QuarentaECincoPorQuarentaECinco}" />
-                                    </Image.Source>
-                                </Image>
-                                <StackPanel Orientation="Vertical" Width="350">
-                                    <TextBlock Text="{Binding Nome}" TextWrapping="Wrap" Width="Auto" />
-                                    <TextBlock Text="{Binding Abreviacao}" TextWrapping="Wrap" Width="Auto" />
-                                </StackPanel>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </ScrollViewer>
+            <Pivot>
+                <PivotItem Header="Clubes Participantes" Margin="0">
+                    <ScrollViewer Height="590">
+                        <ListBox Name="ListagemClubes" ItemsSource="{Binding Clubes}">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel VirtualizingStackPanel.VirtualizationMode="Recycling" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Width="45" Height="45" Margin="0,0,15,0">
+                                            <Image.Source>
+                                                <BitmapImage UriSource="{Binding Escudos.QuarentaECincoPorQuarentaECinco}" />
+                                            </Image.Source>
+                                        </Image>
+                                        <StackPanel Orientation="Vertical" Width="350">
+                                            <TextBlock Text="{Binding Nome}" TextWrapping="Wrap" Width="Auto" />
+                                            <TextBlock Text="{Binding Abreviacao}" TextWrapping="Wrap" Width="Auto" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+                </PivotItem>
+                <PivotItem Header="Procurar Times" Margin="0">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <TextBlock Text="Chave da busca:" VerticalAlignment="Center" />
+                            <TextBox Name="SearchKey" Text="{Binding SearchKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150" Margin="10,0,0,0" />
+                            <Button Content="Buscar" VerticalAlignment="Center" Width="70" Margin="10,0,0,0" Background="#000000" Foreground="#FAFAFA" Click="SearchTeams"/>
+                        </StackPanel>
+                        <ScrollViewer Height="590">
+                            <ListBox Name="ListagemTimes" ItemsSource="{Binding Times}">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel VirtualizingStackPanel.VirtualizationMode="Recycling" />
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Width="45" Height="45" Margin="0,0,15,0">
+                                                <Image.Source>
+                                                    <BitmapImage UriSource="{Binding UrlEscudoPng}" />
+                                                </Image.Source>
+                                            </Image>
+                                            <StackPanel Orientation="Vertical" Width="350">
+                                                <TextBlock Text="{Binding Nome}" TextWrapping="Wrap" Width="Auto" />
+                                                <TextBlock Text="{Binding NomeCartola}" TextWrapping="Wrap" Width="Auto" />
+                                                <TextBlock Text="{Binding Slug}" TextWrapping="Wrap" Width="Auto" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </ScrollViewer>
+                    </StackPanel>
+                </PivotItem>
+            </Pivot>
         </StackPanel>
     </Grid>
 </Page>

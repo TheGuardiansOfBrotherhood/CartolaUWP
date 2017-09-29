@@ -27,11 +27,13 @@ namespace CartolaUWP
     /// </summary>
     public sealed partial class ClubesParticipantes : Page
     {
-        private List<Clube> ClubesList = new List<Clube>();
+        private ClubesManager ClubesManagerTest;
 
         public ClubesParticipantes()
         {
             this.InitializeComponent();
+            ClubesManagerTest = new ClubesManager();
+            //this.DataContext = ClubesManagerTest;
             LoadClubes();
         }
 
@@ -40,7 +42,7 @@ namespace CartolaUWP
             string url = "https://api.cartolafc.globo.com/clubes";
             Uri uri = new Uri(url, UriKind.Absolute);
 
-            var request = (HttpWebRequest) WebRequest.Create(uri);
+            var request = (HttpWebRequest)WebRequest.Create(uri);
             request.Method = "GET";
             request.Accept = "application/json";
             request.Headers[HttpRequestHeader.UserAgent] = ".NET Framework Test Client";
@@ -53,20 +55,48 @@ namespace CartolaUWP
                 {
                     var serializer = new DataContractJsonSerializer(typeof(Clubes));
                     var data = (Clubes)serializer.ReadObject(stream);
-                    ClubesList.Clear();
+                    ClubesManagerTest.Clubes.Clear();
 
                     PropertyInfo[] properties = typeof(Clubes).GetProperties();
                     foreach (PropertyInfo property in properties)
                     {
                         if (property.PropertyType == typeof(Clube))
                         {
-                            ClubesList.Add((Clube) property.GetValue(data));
+                            ClubesManagerTest.Clubes.Add((Clube)property.GetValue(data));
                         }
                     }
 
                     this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
-                        this.DataContext = ClubesList;
+                        this.DataContext = ClubesManagerTest;
+                    }).AsTask().Wait();
+                }
+            },
+            request);
+        }
+
+        private void SearchTeams(object sender, RoutedEventArgs e)
+        {
+            string url = "https://api.cartolafc.globo.com/times?q=" + ClubesManagerTest.SearchKey;
+            Uri uri = new Uri(url, UriKind.Absolute);
+
+            var request = (HttpWebRequest)WebRequest.Create(uri);
+            request.Method = "GET";
+            request.Accept = "application/json";
+            request.Headers[HttpRequestHeader.UserAgent] = ".NET Framework Test Client";
+            request.BeginGetResponse((result) =>
+            {
+                var req = (HttpWebRequest)result.AsyncState;
+                var response = req.EndGetResponse(result);
+                var stream = response.GetResponseStream();
+                if (stream != null)
+                {
+                    var serializer = new DataContractJsonSerializer(typeof(List<Time>));
+                    ClubesManagerTest.Times = (List<Time>)serializer.ReadObject(stream);
+
+                    this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                    {
+                        this.DataContext = ClubesManagerTest;
                     }).AsTask().Wait();
                 }
             },

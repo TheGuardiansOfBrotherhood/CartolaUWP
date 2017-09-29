@@ -42,7 +42,7 @@ namespace CartolaUWP
         public string Slug { get; set; }
 
         [DataMember(Name = "facebook_id")]
-        public long FacebookId { get; set; }
+        public long? FacebookId { get; set; }
 
         [DataMember(Name = "url_escudo_png")]
         public string UrlEscudoPng { get; set; }
