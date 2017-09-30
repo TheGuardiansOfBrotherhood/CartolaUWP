@@ -32,6 +32,7 @@ namespace CartolaUWP
             
             this.InitializeComponent();
             LoadAtleta();
+            
         }
 
         public void LoadAtleta()
@@ -107,6 +108,21 @@ namespace CartolaUWP
                 this.LoadAllAtleta();
             }
             
+        }
+
+        private void ClickDetalheJogador(object sender, SelectionChangedEventArgs e)
+        {
+            ListBox lst = sender as ListBox;
+            MercadoDestaque mercadoDestaque = (MercadoDestaque) lst.SelectedItem;
+
+            Jogador jogador = new Jogador();
+            jogador.Clube = mercadoDestaque.Clube;
+            jogador.Escudo = mercadoDestaque.EscudoClube;
+            jogador.Nome = mercadoDestaque.Atleta.Nome;
+            jogador.Posicao = mercadoDestaque.Posicao;
+            
+            this.Frame.Navigate(typeof(DetalheJogador), jogador);
+
         }
     }
 }
