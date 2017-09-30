@@ -31,14 +31,14 @@
                                     <StackPanel Orientation="Horizontal">
                                         <StackPanel Orientation="Vertical" Width="350">
                                             <TextBlock FontWeight="Bold">
-                                            <Run Text="{Binding RodadaId}" />
-                                            <Run Text="ª rodada" />
+                                                <Run Text="{Binding RodadaId}" />
+                                                <Run Text="ª rodada" />
                                             </TextBlock>
                                             <TextBlock>
-                                            <Run Text="De " />
-                                            <Run Text="{Binding Inicio, Converter={StaticResource toStringFormatConverter}}" />
-                                            <Run Text=" à " />
-                                            <Run Text="{Binding Fim, Converter={StaticResource toStringFormatConverter}}" />
+                                                <Run Text="De " />
+                                                <Run Text="{Binding Inicio, Converter={StaticResource toStringFormatConverter}}" />
+                                                <Run Text=" à " />
+                                                <Run Text="{Binding Fim, Converter={StaticResource toStringFormatConverter}}" />
                                             </TextBlock>
                                         </StackPanel>
                                     </StackPanel>
