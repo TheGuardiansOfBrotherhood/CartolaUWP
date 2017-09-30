@@ -26,6 +26,7 @@ namespace CartolaUWP
     public sealed partial class Jogadores : Page
     {
         List<MercadoDestaque> MercadoDestaqueList = new List<MercadoDestaque>();
+      
         public Jogadores()
         {
             
@@ -51,7 +52,7 @@ namespace CartolaUWP
                 {
                     var serializer = new DataContractJsonSerializer(typeof(List<MercadoDestaque>));
                     var data = (List<MercadoDestaque>)serializer.ReadObject(stream);
-                    
+                   
                     this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
                         this.DataContext = data;
@@ -59,6 +60,53 @@ namespace CartolaUWP
                 }
             },
             request);
+        }
+
+        public void LoadAllAtleta()
+        {
+            string url = "https://api.cartolafc.globo.com/atletas/mercado";
+            Uri uri = new Uri(url, UriKind.Absolute);
+
+            var request = (HttpWebRequest)WebRequest.Create(uri);
+            request.Method = "GET";
+            request.Accept = "application/json";
+            request.Headers[HttpRequestHeader.UserAgent] = ".NET Framework Test Client";
+            request.BeginGetResponse((result) =>
+            {
+                var req = (HttpWebRequest)result.AsyncState;
+                var response = req.EndGetResponse(result);
+                var stream = response.GetResponseStream();
+                if (stream != null)
+                {
+                    var serializer = new DataContractJsonSerializer(typeof(Atletas));
+                    var data = (Atletas)serializer.ReadObject(stream);
+                                      
+                    this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                    {
+                        this.DataContext = data.AtletaList;
+                    }).AsTask().Wait();
+                }
+            },
+            request);
+        }
+
+
+        private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var pivot = sender as Pivot;
+            var item = pivot.SelectedItem as PivotItem;
+
+            if (item.Name == "Escalacoes")
+            {
+                this.DataContext = null;
+                this.LoadAtleta();
+            }
+            else if (item.Name == "TodosAtletas")
+            {
+                this.DataContext = null;
+                this.LoadAllAtleta();
+            }
+            
         }
     }
 }
