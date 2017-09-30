@@ -19,27 +19,27 @@
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="Mercado" FontFamily="Segoe MDL2 Assets" Content="&#xE13C;"
                     Width="50" Height="50" Background="Transparent" Click="Mercado_Click" />
-                    <TextBlock Text="Mercado" FontSize="18" VerticalAlignment="Center" />
+                    <TextBlock Text="Mercado" FontSize="18" VerticalAlignment="Center" Tapped="Mercado_Click" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="Patrocionadores" FontFamily="Segoe MDL2 Assets" Content="&#xE19F;"
                     Width="50" Height="50" Background="Transparent" Click="Patrocionadores_Click" />
-                    <TextBlock Text="Patrocionadores" FontSize="18" VerticalAlignment="Center" />
+                    <TextBlock Text="Patrocionadores" FontSize="18" VerticalAlignment="Center" Tapped="Patrocionadores_Click" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="Campeonato" FontFamily="Segoe MDL2 Assets" Content="&#xE129;"
                         Width="50" Height="50" Background="Transparent" Click="Campeonato_Click" />
-                    <TextBlock Text="Campeonato" FontSize="18" VerticalAlignment="Center" />
+                    <TextBlock Text="Campeonato" FontSize="18" VerticalAlignment="Center" Tapped="Campeonato_Click" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="Jogadores" FontFamily="Segoe MDL2 Assets" Content="&#xE13D;"
                         Width="50" Height="50" Background="Transparent" Click="Jogadores_Click"/>
-                    <TextBlock Text="Jogadores" FontSize="18" VerticalAlignment="Center" />
+                    <TextBlock Text="Jogadores" FontSize="18" VerticalAlignment="Center" Tapped="Jogadores_Click" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="Clubes" FontFamily="Segoe MDL2 Assets" Content="&#xE83D;"
                         Width="50" Height="50" Background="Transparent" Click="Clubes_Click" />
-                    <TextBlock Text="Clubes" FontSize="18" VerticalAlignment="Center" />
+                    <TextBlock Text="Clubes" FontSize="18" VerticalAlignment="Center" Tapped="Clubes_Click" />
                 </StackPanel>
             </StackPanel>
         </SplitView.Pane>
