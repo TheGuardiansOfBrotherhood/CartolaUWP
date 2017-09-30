@@ -103,7 +103,11 @@
     <Compile Include="ClubesParticipantes.xaml.cs">
       <DependentUpon>ClubesParticipantes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DetalheJogador.xaml.cs">
+      <DependentUpon>DetalheJogador.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Escudos.cs" />
+    <Compile Include="Jogador.cs" />
     <Compile Include="Jogadores.xaml.cs">
       <DependentUpon>Jogadores.xaml</DependentUpon>
     </Compile>
@@ -160,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ClubesParticipantes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DetalheJogador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
