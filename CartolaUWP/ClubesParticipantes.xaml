@@ -25,14 +25,14 @@
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Image Width="45" Height="45" Margin="0,0,15,0">
+                                        <Image Width="30" Height="30" Margin="0,0,15,0">
                                             <Image.Source>
                                                 <BitmapImage UriSource="{Binding Escudos.QuarentaECincoPorQuarentaECinco}" />
                                             </Image.Source>
                                         </Image>
                                         <StackPanel Orientation="Vertical" Width="350">
-                                            <TextBlock Text="{Binding Nome}" TextWrapping="Wrap" Width="Auto" />
-                                            <TextBlock Text="{Binding Abreviacao}" TextWrapping="Wrap" Width="Auto" />
+                                            <TextBlock Text="{Binding Nome}" TextWrapping="Wrap" FontWeight="Bold" />
+                                            <TextBlock Text="{Binding Abreviacao}" TextWrapping="Wrap" />
                                         </StackPanel>
                                     </StackPanel>
                                 </DataTemplate>
@@ -43,8 +43,7 @@
                 <PivotItem Header="Procurar Times" Name="times" Margin="0">
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="5">
-                            <TextBlock Text="Chave da busca:" VerticalAlignment="Center" />
-                            <TextBox Name="SearchKey" Width="150" Margin="10,0,0,0" />
+                            <TextBox Name="SearchKey" Width="180" />
                             <Button Content="Buscar" VerticalAlignment="Center" Width="70" Margin="10,0,0,0" Background="#000000" Foreground="#FAFAFA" Click="SearchTeams"/>
                         </StackPanel>
                         <ScrollViewer Height="590">
@@ -57,15 +56,15 @@
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Image Width="45" Height="45" Margin="0,0,15,0">
+                                            <Image Width="30" Height="30" Margin="0,0,15,0">
                                                 <Image.Source>
                                                     <BitmapImage UriSource="{Binding UrlEscudoPng}" />
                                                 </Image.Source>
                                             </Image>
                                             <StackPanel Orientation="Vertical" Width="350">
-                                                <TextBlock Text="{Binding Nome}" TextWrapping="Wrap" Width="Auto" />
-                                                <TextBlock Text="{Binding NomeCartola}" TextWrapping="Wrap" Width="Auto" />
-                                                <TextBlock Text="{Binding Slug}" TextWrapping="Wrap" Width="Auto" />
+                                                <TextBlock Text="{Binding Nome}" TextWrapping="Wrap" FontWeight="Bold" FontSize="12" />
+                                                <TextBlock Text="{Binding NomeCartola}" TextWrapping="Wrap" FontSize="12" />
+                                                <TextBlock Text="{Binding Slug}" TextWrapping="Wrap" FontSize="12"/>
                                             </StackPanel>
                                         </StackPanel>
                                     </DataTemplate>
@@ -78,24 +77,24 @@
                     <StackPanel>
                         <ScrollViewer Height="590" Background="#2B2B2B">
                             <StackPanel>
-                                <StackPanel Orientation="Horizontal" >
-                                    <Border BorderBrush="White" BorderThickness="1" CornerRadius="5" Width="100" Height="100" Margin="20">
-                                        <Border.Background>
-                                            <ImageBrush ImageSource="{Binding MitoRodada.FotoPerfil}"/>
-                                        </Border.Background>
-                                    </Border>
-                                    <StackPanel Orientation="Vertical" Margin="0,20">
-                                        <TextBlock Margin="10" FontWeight="Bold">
+                                <Border BorderBrush="White" BorderThickness="1" CornerRadius="5" Width="100" Height="100" Margin="15">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="{Binding MitoRodada.FotoPerfil}"/>
+                                    </Border.Background>
+                                </Border>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Margin="5" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center">
                                             <Run Text="{Binding MitoRodada.Nome}" />
                                             <Run Text=" (" />
                                             <Run Text="{Binding MitoRodada.Slug}" />
                                             <Run Text=" )" />
                                         </TextBlock>
-                                        <TextBlock Margin="10">
+                                        <TextBlock Margin="5" FontSize="12" HorizontalAlignment="Center">
                                             <Run Text="Média cartoletas: " FontWeight="Bold" />
                                             <Run Text="{Binding MediaCartoletas}" />
                                         </TextBlock>
-                                        <TextBlock Margin="10">
+                                        <TextBlock Margin="5" FontSize="12" HorizontalAlignment="Center">
                                             <Run Text="Média de pontuação: " FontWeight="Bold" />
                                             <Run Text="{Binding MediaPontos}" />
                                         </TextBlock>

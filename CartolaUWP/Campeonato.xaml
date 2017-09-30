@@ -58,28 +58,28 @@
                             <ListBox.ItemTemplate>
                                 <DataTemplate x:DataType="local:Partida">
                                     <StackPanel Orientation="Horizontal">
-                                        <StackPanel Orientation="Vertical" Width="150" Height="65">
-                                            <Image Width="45" Height="45" Margin="0,0,5,0" HorizontalAlignment="Center">
+                                        <StackPanel Orientation="Vertical" Width="70" Height="65">
+                                            <Image Width="30" Height="30" Margin="0,0,5,0" HorizontalAlignment="Center">
                                                 <Image.Source>
                                                     <BitmapImage UriSource="{Binding ClubeCasa.Escudos.QuarentaECincoPorQuarentaECinco}" />
                                                 </Image.Source>
                                             </Image>
-                                            <TextBlock Text="{Binding ClubeCasa.Nome}" HorizontalAlignment="Center"></TextBlock>
+                                            <TextBlock Text="{Binding ClubeCasa.Nome}" FontSize="12" HorizontalAlignment="Center"></TextBlock>
                                         </StackPanel>
-                                        <StackPanel Orientation="Vertical" Width="150" Height="65">
-                                            <TextBlock HorizontalAlignment="Center">
-                                                <Run Text="{Binding PartidaData, Converter={StaticResource toStringFormatConverter}, ConverterParameter='dd/MM/yyyy HH:mm:ss'}" />
+                                        <StackPanel Orientation="Vertical" Width="100" Height="65">
+                                            <TextBlock HorizontalAlignment="Center" FontSize="10">
+                                                <Run Text="{Binding PartidaData, Converter={StaticResource toStringFormatConverter}, ConverterParameter='dd/MM/yyyy HH:mm'}" />
                                             </TextBlock>
                                             <TextBlock Text="0 x 0" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
-                                            <TextBlock Text="{Binding Local}" HorizontalAlignment="Center"></TextBlock>
+                                            <TextBlock Text="{Binding Local}" HorizontalAlignment="Center" FontSize="10"></TextBlock>
                                         </StackPanel>
-                                        <StackPanel Orientation="Vertical" Width="150" Height="65">
-                                            <Image Width="45" Height="45" Margin="0,0,5,0" HorizontalAlignment="Center">
+                                        <StackPanel Orientation="Vertical" Width="70" Height="65">
+                                            <Image Width="30" Height="30" Margin="0,0,5,0" HorizontalAlignment="Center">
                                                 <Image.Source>
                                                     <BitmapImage UriSource="{Binding ClubeVisitante.Escudos.QuarentaECincoPorQuarentaECinco}" />
                                                 </Image.Source>
                                             </Image>
-                                            <TextBlock Text="{Binding ClubeVisitante.Nome}" HorizontalAlignment="Center"></TextBlock>
+                                            <TextBlock Text="{Binding ClubeVisitante.Nome}" FontSize="12" HorizontalAlignment="Center" ></TextBlock>
                                         </StackPanel>
                                     </StackPanel>
                                 </DataTemplate>
