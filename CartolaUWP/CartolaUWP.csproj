@@ -93,7 +93,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Assets\Jogador.cs" />
     <Compile Include="Atleta.cs" />
+    <Compile Include="Atletas.cs" />
     <Compile Include="Campeonato.xaml.cs">
       <DependentUpon>Campeonato.xaml</DependentUpon>
     </Compile>
@@ -103,9 +105,10 @@
       <DependentUpon>ClubesParticipantes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Escudos.cs" />
+    <Compile Include="Jogador.cs" />
     <Compile Include="Jogadores.xaml.cs">
       <DependentUpon>Jogadores.xaml</DependentUpon>
-	  </Compile>
+    </Compile>
     <Compile Include="ListarPatrocinadores.xaml.cs">
       <DependentUpon>ListarPatrocinadores.xaml</DependentUpon>
     </Compile>
