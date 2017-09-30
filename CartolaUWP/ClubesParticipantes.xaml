@@ -74,6 +74,37 @@
                         </ScrollViewer>
                     </StackPanel>
                 </PivotItem>
+                <PivotItem Header="Destaque" Name="destaque" Margin="0">
+                    <StackPanel>
+                        <ScrollViewer Height="590" Background="#2B2B2B">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" >
+                                    <Border BorderBrush="White" BorderThickness="1" CornerRadius="5" Width="100" Height="100" Margin="20">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding MitoRodada.FotoPerfil}"/>
+                                        </Border.Background>
+                                    </Border>
+                                    <StackPanel Orientation="Vertical" Margin="0,20">
+                                        <TextBlock Margin="10" FontWeight="Bold">
+                                            <Run Text="{Binding MitoRodada.Nome}" />
+                                            <Run Text=" (" />
+                                            <Run Text="{Binding MitoRodada.Slug}" />
+                                            <Run Text=" )" />
+                                        </TextBlock>
+                                        <TextBlock Margin="10">
+                                            <Run Text="Média cartoletas: " FontWeight="Bold" />
+                                            <Run Text="{Binding MediaCartoletas}" />
+                                        </TextBlock>
+                                        <TextBlock Margin="10">
+                                            <Run Text="Média de pontuação: " FontWeight="Bold" />
+                                            <Run Text="{Binding MediaPontos}" />
+                                        </TextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </StackPanel>
+                </PivotItem>
             </Pivot>
         </StackPanel>
     </Grid>
