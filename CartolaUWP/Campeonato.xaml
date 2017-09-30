@@ -17,6 +17,7 @@
                 <Image Margin="5,5,5,5" Width="40" Height="40" Source="Assets/web_hi_res_512.png" />
                 <TextBlock Foreground="White" Margin="0,15,0,15" Text="CartolaFC"></TextBlock>
             </StackPanel>
+            <ProgressBar x:Name="LoadingIndicator" Visibility="Collapsed" Width="100" Foreground="#2B2B2B" IsIndeterminate="True" />
             <Pivot SelectionChanged="Pivot_SelectionChanged">
                 <PivotItem Header="Rodadas" Name="rodadas" Margin="0">
                     <ScrollViewer Height="420">
@@ -86,8 +87,6 @@
                             </ListBox.ItemTemplate>
                         </ListBox>
                     </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="Pontuação" Name="pontuacao" Margin="0">
                 </PivotItem>
             </Pivot>
         </StackPanel>

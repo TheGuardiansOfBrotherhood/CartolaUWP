@@ -35,6 +35,7 @@ namespace CartolaUWP
 
         private void LoadMercado()
         {
+            LoadingIndicator.Visibility = Visibility.Visible;
             Uri uri = new Uri(URL_MERCADO, UriKind.Absolute);
 
             var request = (HttpWebRequest)WebRequest.Create(uri);
@@ -54,6 +55,7 @@ namespace CartolaUWP
                     this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
                         this.DataContext = Status;
+                        LoadingIndicator.Visibility = Visibility.Collapsed;
                     }).AsTask().Wait();
                 }
             },

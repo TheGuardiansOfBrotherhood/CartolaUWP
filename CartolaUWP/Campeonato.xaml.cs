@@ -35,6 +35,7 @@ namespace CartolaUWP
 
         public void LoadRodadas()
         {
+            LoadingIndicator.Visibility = Visibility.Visible;
             Uri uri = new Uri(URL_RODADAS, UriKind.Absolute);
 
             var request = (HttpWebRequest) WebRequest.Create(uri);
@@ -54,6 +55,7 @@ namespace CartolaUWP
                     this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
                         this.DataContext = Rodadas;
+                        LoadingIndicator.Visibility = Visibility.Collapsed;
                     }).AsTask().Wait();
                 }
             },
@@ -62,6 +64,7 @@ namespace CartolaUWP
 
         public void LoadClubes()
         {
+            LoadingIndicator.Visibility = Visibility.Visible;
             Uri uri = new Uri(URL_CLUBES, UriKind.Absolute);
 
             var request = (HttpWebRequest)WebRequest.Create(uri);
@@ -120,6 +123,7 @@ namespace CartolaUWP
                     this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
                         this.DataContext = Partidas.PartidaList;
+                        LoadingIndicator.Visibility = Visibility.Collapsed;
                     }).AsTask().Wait();
                 }
             },
@@ -128,6 +132,7 @@ namespace CartolaUWP
 
         private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            this.DataContext = null;
             var pivot = sender as Pivot;
             var item = pivot.SelectedItem as PivotItem;
 
@@ -138,9 +143,6 @@ namespace CartolaUWP
             else if (item.Name == "partidas")
             {
                 this.LoadClubes();
-            }
-            else if (item.Name == "pontuacao")
-            {
             }
         }
     }
