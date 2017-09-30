@@ -38,11 +38,15 @@ namespace CartolaUWP
         [DataMember(Name = "partida_id")]
         public long PartidaId { get; set; }
 
+        public Clube ClubeCasa { get; set; }
+
         [DataMember(Name = "clube_casa_id")]
         public long ClubeCasaId { get; set; }
 
         [DataMember(Name = "clube_casa_posicao")]
         public int ClubeCasaPosicao { get; set; }
+
+        public Clube ClubeVisitante { get; set; }
 
         [DataMember(Name = "clube_visitante_id")]
         public long ClubeVisitanteId { get; set; }

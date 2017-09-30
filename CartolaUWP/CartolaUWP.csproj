@@ -108,6 +108,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Partidas.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="MitoRodada.cs" />
     <Compile Include="Partida.cs" />
