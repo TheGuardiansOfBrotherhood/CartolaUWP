@@ -103,11 +103,15 @@
       <DependentUpon>ClubesParticipantes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Escudos.cs" />
+    <Compile Include="ListarPatrocinadores.xaml.cs">
+      <DependentUpon>ListarPatrocinadores.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MercadoDestaque.cs" />
     <Compile Include="Fechamento.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Patricinadores.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="MitoRodada.cs" />
     <Compile Include="Partida.cs" />
@@ -148,6 +152,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ClubesParticipantes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListarPatrocinadores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
