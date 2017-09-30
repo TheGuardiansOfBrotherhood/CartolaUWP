@@ -27,20 +27,19 @@ namespace CartolaUWP
     /// </summary>
     public sealed partial class ClubesParticipantes : Page
     {
-        private List<Clube> ClubesList = new List<Clube>();
+        private const string URL_CLUBES = "https://api.cartolafc.globo.com/clubes";
+        private const string URL_TIMES = "https://api.cartolafc.globo.com/times?q=";
 
         public ClubesParticipantes()
         {
             this.InitializeComponent();
-            LoadClubes();
         }
 
         public void LoadClubes()
         {
-            string url = "https://api.cartolafc.globo.com/clubes";
-            Uri uri = new Uri(url, UriKind.Absolute);
+            Uri uri = new Uri(URL_CLUBES, UriKind.Absolute);
 
-            var request = (HttpWebRequest) WebRequest.Create(uri);
+            var request = (HttpWebRequest)WebRequest.Create(uri);
             request.Method = "GET";
             request.Accept = "application/json";
             request.Headers[HttpRequestHeader.UserAgent] = ".NET Framework Test Client";
@@ -53,24 +52,66 @@ namespace CartolaUWP
                 {
                     var serializer = new DataContractJsonSerializer(typeof(Clubes));
                     var data = (Clubes)serializer.ReadObject(stream);
-                    ClubesList.Clear();
+                    List<Clube> Clubes = new List<Clube>();
 
                     PropertyInfo[] properties = typeof(Clubes).GetProperties();
                     foreach (PropertyInfo property in properties)
                     {
                         if (property.PropertyType == typeof(Clube))
                         {
-                            ClubesList.Add((Clube) property.GetValue(data));
+                            Clubes.Add((Clube)property.GetValue(data));
                         }
                     }
 
                     this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
-                        this.DataContext = ClubesList;
+                        this.DataContext = Clubes;
                     }).AsTask().Wait();
                 }
             },
             request);
+        }
+
+        private void SearchTeams(object sender, RoutedEventArgs e)
+        {
+            Uri uri = new Uri(URL_TIMES + SearchKey.Text, UriKind.Absolute);
+
+            var request = (HttpWebRequest)WebRequest.Create(uri);
+            request.Method = "GET";
+            request.Accept = "application/json";
+            request.Headers[HttpRequestHeader.UserAgent] = ".NET Framework Test Client";
+            request.BeginGetResponse((result) =>
+            {
+                var req = (HttpWebRequest)result.AsyncState;
+                var response = req.EndGetResponse(result);
+                var stream = response.GetResponseStream();
+                if (stream != null)
+                {
+                    var serializer = new DataContractJsonSerializer(typeof(List<Time>));
+                    List<Time> Times = (List<Time>)serializer.ReadObject(stream);
+
+                    this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                    {
+                        this.DataContext = Times;
+                    }).AsTask().Wait();
+                }
+            },
+            request);
+        }
+
+        private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var pivot = sender as Pivot;
+            var item = pivot.SelectedItem as PivotItem;
+
+            if (item.Name == "clubes")
+            {
+                this.LoadClubes();
+            }
+            else if (item.Name == "times")
+            {
+                this.DataContext = null;
+            }
         }
     }
 }

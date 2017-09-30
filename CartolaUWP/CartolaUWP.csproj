@@ -105,12 +105,16 @@
     <Compile Include="Escudos.cs" />
     <Compile Include="Jogadores.xaml.cs">
       <DependentUpon>Jogadores.xaml</DependentUpon>
+	</Compile>
+    <Compile Include="ListarPatrocinadores.xaml.cs">
+      <DependentUpon>ListarPatrocinadores.xaml</DependentUpon>
     </Compile>
     <Compile Include="MercadoDestaque.cs" />
     <Compile Include="Fechamento.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Patricinadores.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="MitoRodada.cs" />
     <Compile Include="Partida.cs" />
@@ -153,7 +157,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
     <Page Include="Jogadores.xaml">
+=======
+    <Page Include="ListarPatrocinadores.xaml">
+>>>>>>> 084bdda1b033752aa25607529a07e6c45dc84599
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
