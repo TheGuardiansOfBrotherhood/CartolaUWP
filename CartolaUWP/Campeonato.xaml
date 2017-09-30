@@ -12,8 +12,8 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Pivot Title="Campeonato">
-            <PivotItem Header="Rodadas">
+        <Pivot Title="Campeonato" SelectionChanged="Pivot_SelectionChanged">
+            <PivotItem Header="Rodadas" Name="campeonato">
                 <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                     <StackPanel Background="#FAFAFA" Orientation="Vertical">
                         <StackPanel Background="#FF9800" Orientation="Horizontal">
@@ -21,7 +21,7 @@
                             <TextBlock Foreground="White" Margin="0,15,0,15">CartolaFC</TextBlock>
                         </StackPanel>
                         <ScrollViewer Height="590">
-                            <ListBox Name="Listagem" ItemsSource="{Binding}" Margin="0,0,0,40" >
+                            <ListBox Name="Rodadas" ItemsSource="{Binding}" Margin="0,0,0,40" >
                                 <ListBox.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <VirtualizingStackPanel VirtualizingStackPanel.VirtualizationMode="Recycling"/>
@@ -50,8 +50,33 @@
                     </StackPanel>
                 </Grid>
             </PivotItem>
-            <PivotItem Header="PivotItem 1">
-                <Grid/>
+            <PivotItem Header="Partidas" Name="partidas">
+                <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                    <StackPanel Background="#FAFAFA" Orientation="Vertical">
+                        <StackPanel Background="#FF9800" Orientation="Horizontal">
+                            <Image Margin="5,5,5,5" Width="40" Height="40" Source="Assets/web_hi_res_512.png"/>
+                            <TextBlock Foreground="White" Margin="0,15,0,15">CartolaFC</TextBlock>
+                        </StackPanel>
+                        <ScrollViewer Height="590">
+                            <ListBox Name="Partidas" ItemsSource="{Binding}" Margin="0,0,0,40" >
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel VirtualizingStackPanel.VirtualizationMode="Recycling"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate x:DataType="local:Partida">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical" Width="350">
+                                                <TextBlock Text="{Binding PartidaId}"></TextBlock>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </ScrollViewer>
+                    </StackPanel>
+                </Grid>
             </PivotItem>
         </Pivot>
 
