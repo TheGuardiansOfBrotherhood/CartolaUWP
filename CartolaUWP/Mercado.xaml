@@ -13,7 +13,7 @@
                 <Image Margin="5,5,5,5" Width="40" Height="40" Source="Assets/web_hi_res_512.png" />
                 <TextBlock Foreground="White" Margin="0,15,0,15" Text="CartolaFC"></TextBlock>
             </StackPanel>
-            <ScrollViewer Height="590" Background="#2B2B2B">
+            <ScrollViewer Height="470" Background="#2B2B2B">
                 <StackPanel Orientation="Vertical" Margin="15">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Rodada Atual:" FontWeight="Bold" TextWrapping="Wrap" Width="Auto" />
