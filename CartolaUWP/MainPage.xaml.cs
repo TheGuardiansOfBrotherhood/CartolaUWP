@@ -23,6 +23,7 @@ namespace CartolaUWP
         public MainPage()
         {
             this.InitializeComponent();
+            contentFrame.Navigate(typeof(Mercado));
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
@@ -30,24 +31,29 @@ namespace CartolaUWP
             MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
         }
 
+        private void Mercado_Click(object sender, RoutedEventArgs e)
+        {
+            contentFrame.Navigate(typeof(Mercado));
+        }
+
+        private void Patrocionadores_Click(object sender, RoutedEventArgs e)
+        {
+            contentFrame.Navigate(typeof(ListarPatrocinadores));
+        }
+
         private void Campeonato_Click(object sender, RoutedEventArgs e)
         {
             contentFrame.Navigate(typeof(Campeonato));
         }
-        private void Clubes_Click(object sender, RoutedEventArgs e)
-        {
-            contentFrame.Navigate(typeof(ClubesParticipantes));
-        }
-
 
         private void Jogadores_Click(object sender, RoutedEventArgs e)
         {
             contentFrame.Navigate(typeof(Jogadores));
-	}
-		
-        private void Patrocionadores_Click(object sender, RoutedEventArgs e)
+        }
+
+        private void Clubes_Click(object sender, RoutedEventArgs e)
         {
-            contentFrame.Navigate(typeof(ListarPatrocinadores));
+            contentFrame.Navigate(typeof(ClubesParticipantes));
         }
     }
 }

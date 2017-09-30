@@ -41,5 +41,14 @@ namespace CartolaUWP
 
         [DataMember(Name = "timestamp")]
         public long Timestamp { get; set; }
+
+        public string TimestampToString
+        {
+            get
+            {
+                DateTime dateTime = new DateTime(Ano, Mes, Dia, Hora, Minuto, 0);
+                return dateTime.ToString(@"dd\/MM\/yyyy HH:mm:ss"); ;
+            }
+        }
     }
 }
