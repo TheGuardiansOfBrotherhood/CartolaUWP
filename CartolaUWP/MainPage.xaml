@@ -33,7 +33,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="Jogadores" FontFamily="Segoe MDL2 Assets" Content="&#xE13D;"
-                        Width="50" Height="50" Background="Transparent" />
+                        Width="50" Height="50" Background="Transparent" Click="Jogadores_Click"/>
                     <TextBlock Text="Jogadores" FontSize="18" VerticalAlignment="Center" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
