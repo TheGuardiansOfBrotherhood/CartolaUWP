@@ -15,7 +15,7 @@
             </StackPanel>
             <Pivot SelectionChanged="Pivot_SelectionChanged">
                 <PivotItem Header="Clubes Participantes" Name="clubes" Margin="0">
-                    <ScrollViewer Height="590">
+                    <ScrollViewer Height="420">
                         <ListBox Name="ListagemClubes" ItemsSource="{Binding}">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -46,7 +46,7 @@
                             <TextBox Name="SearchKey" Width="180" />
                             <Button Content="Buscar" VerticalAlignment="Center" Width="70" Margin="10,0,0,0" Background="#000000" Foreground="#FAFAFA" Click="SearchTeams"/>
                         </StackPanel>
-                        <ScrollViewer Height="590">
+                        <ScrollViewer Height="380">
                             <ListBox Name="ListagemTimes" ItemsSource="{Binding}">
                                 <ListBox.ItemsPanel>
                                     <ItemsPanelTemplate>
@@ -75,7 +75,7 @@
                 </PivotItem>
                 <PivotItem Header="Destaque" Name="destaque" Margin="0">
                     <StackPanel>
-                        <ScrollViewer Height="590" Background="#2B2B2B">
+                        <ScrollViewer Height="420" Background="#2B2B2B">
                             <StackPanel>
                                 <Border BorderBrush="White" BorderThickness="1" CornerRadius="5" Width="100" Height="100" Margin="15">
                                     <Border.Background>

@@ -19,7 +19,7 @@
             </StackPanel>
             <Pivot SelectionChanged="Pivot_SelectionChanged">
                 <PivotItem Header="Rodadas" Name="rodadas" Margin="0">
-                    <ScrollViewer Height="590">
+                    <ScrollViewer Height="420">
                         <ListBox Name="Rodadas" ItemsSource="{Binding}">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -48,7 +48,7 @@
                     </ScrollViewer>
                 </PivotItem>
                 <PivotItem Header="Partidas" Name="partidas" Margin="0">
-                    <ScrollViewer Height="590">
+                    <ScrollViewer Height="420">
                         <ListBox Name="Partidas" ItemsSource="{Binding}">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>

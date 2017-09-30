@@ -15,8 +15,8 @@
             </StackPanel>
             <Pivot SelectionChanged="Pivot_SelectionChanged" Background="Orange">
                 <PivotItem Header="+ Escalados" Name="Escalacoes" Margin="0">
-                    <ScrollViewer Height="590">
-                        <ListBox Name="JogadoresMaisEscalados" ItemsSource="{Binding}" Margin="0,0,0,40" >
+                    <ScrollViewer Height="420">
+                        <ListBox Name="JogadoresMaisEscalados" ItemsSource="{Binding}" >
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <VirtualizingStackPanel VirtualizingStackPanel.VirtualizationMode="Recycling"/>
@@ -45,8 +45,8 @@
                     </ScrollViewer>
                 </PivotItem>
                 <PivotItem Header="Jogadores" Name="TodosAtletas" Margin="0">
-                    <ScrollViewer Height="590">
-                        <ListBox Name="TodosJogadores" ItemsSource="{Binding}" Margin="0,0,0,40" >
+                    <ScrollViewer Height="420">
+                        <ListBox Name="TodosJogadores" ItemsSource="{Binding}" >
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <VirtualizingStackPanel VirtualizingStackPanel.VirtualizationMode="Recycling"/>
