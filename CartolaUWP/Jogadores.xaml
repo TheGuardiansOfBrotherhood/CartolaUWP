@@ -45,32 +45,38 @@
                     </ScrollViewer>
                 </PivotItem>
                 <PivotItem Header="Jogadores" Name="TodosAtletas" Margin="0">
-                    <ScrollViewer Height="420">
-                        <ListBox Name="TodosJogadores" ItemsSource="{Binding}" >
-                            <ListBox.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <VirtualizingStackPanel VirtualizingStackPanel.VirtualizationMode="Recycling"/>
-                                </ItemsPanelTemplate>
-                            </ListBox.ItemsPanel>
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="{Binding Nome}" TextWrapping="Wrap" Width="Auto" FontWeight="Bold" FontSize="14"/>
-                                        <StackPanel Orientation="Horizontal" Width="Auto">
-                                            <TextBlock Text="Preço" Width="100" HorizontalAlignment="Left" FontSize="12"/>
-                                            <TextBlock Text="Média" Width="100" HorizontalAlignment="Center" FontSize="12"/>
-                                            <TextBlock Text="Jogos" Width="100" HorizontalAlignment="Right" FontSize="12"/>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <TextBox Name="SearchKey" Width="180" />
+                            <Button Content="Buscar" VerticalAlignment="Center" Width="70" Margin="10,0,0,0" Background="#000000" Foreground="#FAFAFA" Click="SearchJogadores"/>
+                        </StackPanel>
+                        <ScrollViewer Height="380">
+                            <ListBox Name="TodosJogadores" ItemsSource="{Binding}" >
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel VirtualizingStackPanel.VirtualizationMode="Recycling"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Text="{Binding Nome}" TextWrapping="Wrap" Width="Auto" FontWeight="Bold" FontSize="14"/>
+                                            <StackPanel Orientation="Horizontal" Width="Auto">
+                                                <TextBlock Text="Preço" Width="100" HorizontalAlignment="Left" FontSize="12"/>
+                                                <TextBlock Text="Média" Width="100" HorizontalAlignment="Center" FontSize="12"/>
+                                                <TextBlock Text="Jogos" Width="100" HorizontalAlignment="Right" FontSize="12"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Width="Auto">
+                                                <TextBlock Text="{Binding PrecoNum}" Width="100" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Left" FontSize="12"/>
+                                                <TextBlock Text="{Binding MediaNum}" Width="100" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Center" FontSize="12"/>
+                                                <TextBlock Text="{Binding JogosNum}" Width="100" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Right" FontSize="12"/>
+                                            </StackPanel>
                                         </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Width="Auto">
-                                            <TextBlock Text="{Binding PrecoNum}" Width="100" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Left" FontSize="12"/>
-                                            <TextBlock Text="{Binding MediaNum}" Width="100" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Center" FontSize="12"/>
-                                            <TextBlock Text="{Binding JogosNum}" Width="100" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Right" FontSize="12"/>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                    </ScrollViewer>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </ScrollViewer>
+                    </StackPanel>
                 </PivotItem>
             </Pivot>
         </StackPanel>

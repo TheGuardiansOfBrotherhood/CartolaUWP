@@ -20,11 +20,11 @@ using Windows.UI.Xaml.Navigation;
 
 namespace CartolaUWP
 {
-    /// <summary>
-    /// Uma página vazia que pode ser usada isoladamente ou navegada dentro de um Quadro.
-    /// </summary>
+
     public sealed partial class Jogadores : Page
     {
+        private List<Atleta> Atletas = new List<Atleta>();
+
         List<MercadoDestaque> MercadoDestaqueList = new List<MercadoDestaque>();
       
         public Jogadores()
@@ -84,6 +84,7 @@ namespace CartolaUWP
                     this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
                         this.DataContext = data.AtletaList;
+                        this.Atletas = data.AtletaList;
                     }).AsTask().Wait();
                 }
             },
@@ -107,6 +108,21 @@ namespace CartolaUWP
                 this.LoadAllAtleta();
             }
             
+        }
+
+
+        private void SearchJogadores(object sender, RoutedEventArgs e)
+        {
+            var Search = SearchKey.Text;
+
+            if (Search != null && this.Atletas != null)
+            {
+                List<Atleta> SearchList = this.Atletas.FindAll(Atleta =>
+                {
+                    return Atleta.Nome.ToLower().Contains(Search.ToLower());
+                });
+                this.DataContext = SearchList;
+            }
         }
     }
 }
