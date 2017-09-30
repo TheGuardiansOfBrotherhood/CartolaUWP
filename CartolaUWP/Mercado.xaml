@@ -29,10 +29,8 @@
                     </StackPanel>
                     <TextBlock Text="Aviso:" FontWeight="Bold" TextWrapping="Wrap" Width="Auto" Margin="0,15,0,0" />
                     <TextBlock Text="{Binding Aviso}" TextWrapping="Wrap" Width="Auto" />
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Para mais informações acesse:" FontWeight="Bold" TextWrapping="Wrap" Width="Auto" />
-                        <TextBlock Text="{Binding AvisoUrl}" TextWrapping="Wrap" Width="Auto" Margin="5,0,0,0" />
-                    </StackPanel>
+                    <TextBlock Text="Para mais informações acesse:" FontWeight="Bold" TextWrapping="Wrap" Width="Auto" />
+                    <TextBlock Text="{Binding AvisoUrl}" TextWrapping="Wrap" Width="Auto" Margin="5,0,0,0" />
                 </StackPanel>
             </ScrollViewer>
         </StackPanel>

@@ -25,18 +25,18 @@
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Image Width="45" Height="45" Margin="0,0,15,0">
+                                        <Image Width="30" Height="30" Margin="0,0,15,0">
                                             <Image.Source>
                                                 <BitmapImage UriSource="{Binding EscudoClube}" />
                                             </Image.Source>
                                         </Image>
-                                        <StackPanel Orientation="Vertical" Width="200">
-                                            <TextBlock Text="{Binding Atleta.Apelido}" TextWrapping="Wrap" Width="Auto" />
-                                            <TextBlock Text="{Binding Clube}" TextWrapping="Wrap" Width="Auto" />
+                                        <StackPanel Orientation="Vertical" Width="120">
+                                            <TextBlock Text="{Binding Atleta.Apelido}" TextWrapping="Wrap" Width="Auto" FontWeight="Bold" FontSize="12" />
+                                            <TextBlock Text="{Binding Clube}" TextWrapping="Wrap" Width="Auto" FontSize="12" />
                                         </StackPanel>
-                                        <StackPanel Orientation="Vertical" Width="200">
-                                            <TextBlock Text="N° escalações" TextWrapping="Wrap" Width="Auto"/>
-                                            <TextBlock Text="{Binding Escalacoes}" TextWrapping="Wrap" Width="Auto"/>
+                                        <StackPanel Orientation="Vertical" Width="120">
+                                            <TextBlock Text="N° escalações" TextWrapping="Wrap" Width="Auto" FontWeight="Bold" FontSize="12"/>
+                                            <TextBlock Text="{Binding Escalacoes}" TextWrapping="Wrap" Width="Auto" FontSize="12"/>
                                         </StackPanel>
                                     </StackPanel>
                                 </DataTemplate>
@@ -55,18 +55,17 @@
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="{Binding Nome}" TextWrapping="Wrap" Width="Auto" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding Nome}" TextWrapping="Wrap" Width="Auto" FontWeight="Bold" FontSize="14"/>
                                         <StackPanel Orientation="Horizontal" Width="Auto">
-                                            <TextBlock Text="{Binding PrecoNum}" TextWrapping="Wrap" Width="70" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Center"/>
-                                            <TextBlock Text="{Binding MediaNum}" TextWrapping="Wrap" Width="70" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Center"/>
-                                            <TextBlock Text="{Binding JogosNum}" TextWrapping="Wrap" Width="70" FontWeight="Bold" HorizontalAlignment="Center" />
+                                            <TextBlock Text="Preço" Width="100" HorizontalAlignment="Left" FontSize="12"/>
+                                            <TextBlock Text="Média" Width="100" HorizontalAlignment="Center" FontSize="12"/>
+                                            <TextBlock Text="Jogos" Width="100" HorizontalAlignment="Right" FontSize="12"/>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal" Width="Auto">
-                                            <TextBlock Text="Preço" Width="70" Margin="0,0,10,0" HorizontalAlignment="Center"/>
-                                            <TextBlock Text="Média" Width="70" Margin="0,0,10,0" HorizontalAlignment="Center"/>
-                                            <TextBlock Text="Jogos" Width="70" Margin="0,0,10,0" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="{Binding PrecoNum}" Width="100" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Left" FontSize="12"/>
+                                            <TextBlock Text="{Binding MediaNum}" Width="100" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Center" FontSize="12"/>
+                                            <TextBlock Text="{Binding JogosNum}" Width="100" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Right" FontSize="12"/>
                                         </StackPanel>
-                                        
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
