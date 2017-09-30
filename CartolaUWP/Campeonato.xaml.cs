@@ -25,6 +25,7 @@ namespace CartolaUWP
         private const string URL_RODADAS = "https://api.cartolafc.globo.com/rodadas";
         private const string URL_CLUBES = "https://api.cartolafc.globo.com/clubes";
         private const string URL_PARTIDAS = "https://api.cartolafc.globo.com/partidas";
+
         List<Clube> ClubeList = new List<Clube>();
 
         public Campeonato()

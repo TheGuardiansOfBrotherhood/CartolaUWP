@@ -31,14 +31,14 @@
                                     <StackPanel Orientation="Horizontal">
                                         <StackPanel Orientation="Vertical" Width="350">
                                             <TextBlock FontWeight="Bold">
-                                            <Run Text="{Binding RodadaId}" />
-                                            <Run Text="ª rodada" />
+                                                <Run Text="{Binding RodadaId}" />
+                                                <Run Text="ª rodada" />
                                             </TextBlock>
                                             <TextBlock>
-                                            <Run Text="De " />
-                                            <Run Text="{Binding Inicio, Converter={StaticResource toStringFormatConverter}}" />
-                                            <Run Text=" à " />
-                                            <Run Text="{Binding Fim, Converter={StaticResource toStringFormatConverter}}" />
+                                                <Run Text="De " />
+                                                <Run Text="{Binding Inicio, Converter={StaticResource toStringFormatConverter}}" />
+                                                <Run Text=" à " />
+                                                <Run Text="{Binding Fim, Converter={StaticResource toStringFormatConverter}}" />
                                             </TextBlock>
                                         </StackPanel>
                                     </StackPanel>
@@ -67,8 +67,10 @@
                                             <TextBlock Text="{Binding ClubeCasa.Nome}" HorizontalAlignment="Center"></TextBlock>
                                         </StackPanel>
                                         <StackPanel Orientation="Vertical" Width="150" Height="65">
-                                            <TextBlock Text="{Binding PartidaData}" HorizontalAlignment="Center"></TextBlock>
-                                            <TextBlock Text="0 x 0" HorizontalAlignment="Center"></TextBlock>
+                                            <TextBlock HorizontalAlignment="Center">
+                                                <Run Text="{Binding PartidaData, Converter={StaticResource toStringFormatConverter}, ConverterParameter='dd/MM/yyyy HH:mm:ss'}" />
+                                            </TextBlock>
+                                            <TextBlock Text="0 x 0" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
                                             <TextBlock Text="{Binding Local}" HorizontalAlignment="Center"></TextBlock>
                                         </StackPanel>
                                         <StackPanel Orientation="Vertical" Width="150" Height="65">

@@ -15,7 +15,11 @@ namespace CartolaUWP
                 return null;
 
             DateTime dt = DateTime.Parse(value.ToString());
-            return dt.ToString("dd/MM/yyyy");
+
+            if (parameter == null)
+                parameter = "dd/MM/yyyy";
+
+            return dt.ToString(parameter.ToString());
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
