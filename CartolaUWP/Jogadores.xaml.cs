@@ -26,7 +26,7 @@ namespace CartolaUWP
     public sealed partial class Jogadores : Page
     {
         List<MercadoDestaque> MercadoDestaqueList = new List<MercadoDestaque>();
-        List<Jogador> JogadorList = new List<Jogador>();
+      
         public Jogadores()
         {
             

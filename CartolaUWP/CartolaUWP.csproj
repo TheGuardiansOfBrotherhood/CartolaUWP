@@ -105,7 +105,6 @@
       <DependentUpon>ClubesParticipantes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Escudos.cs" />
-    <Compile Include="Jogador.cs" />
     <Compile Include="Jogadores.xaml.cs">
       <DependentUpon>Jogadores.xaml</DependentUpon>
     </Compile>
