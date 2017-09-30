@@ -157,11 +157,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-<<<<<<< HEAD
     <Page Include="Jogadores.xaml">
-=======
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ListarPatrocinadores.xaml">
->>>>>>> 084bdda1b033752aa25607529a07e6c45dc84599
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
