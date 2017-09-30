@@ -32,6 +32,7 @@ namespace CartolaUWP
 
         private void LoadPatrocinadores()
         {
+            LoadingIndicator.Visibility = Visibility.Visible;
             Uri uri = new Uri(URL_PATROCINADORES, UriKind.Absolute);
 
             var request = (HttpWebRequest) WebRequest.Create(uri);
@@ -61,6 +62,7 @@ namespace CartolaUWP
                     this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
                         this.DataContext = Patrocinadores;
+                        LoadingIndicator.Visibility = Visibility.Collapsed;
                     }).AsTask().Wait();
                 }
             },

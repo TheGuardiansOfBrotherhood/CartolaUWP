@@ -38,6 +38,7 @@ namespace CartolaUWP
 
         public void LoadClubes()
         {
+            LoadingIndicator.Visibility = Visibility.Visible;
             Uri uri = new Uri(URL_CLUBES, UriKind.Absolute);
 
             var request = (HttpWebRequest)WebRequest.Create(uri);
@@ -67,6 +68,7 @@ namespace CartolaUWP
                     this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
                         this.DataContext = Clubes;
+                        LoadingIndicator.Visibility = Visibility.Collapsed;
                     }).AsTask().Wait();
                 }
             },
@@ -75,6 +77,7 @@ namespace CartolaUWP
 
         private void SearchTeams(object sender, RoutedEventArgs e)
         {
+            LoadingIndicator.Visibility = Visibility.Visible;
             Uri uri = new Uri(URL_TIMES + SearchKey.Text, UriKind.Absolute);
 
             var request = (HttpWebRequest)WebRequest.Create(uri);
@@ -94,6 +97,7 @@ namespace CartolaUWP
                     this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
                         this.DataContext = Times;
+                        LoadingIndicator.Visibility = Visibility.Collapsed;
                     }).AsTask().Wait();
                 }
             },
@@ -102,6 +106,7 @@ namespace CartolaUWP
 
         private void LoadDestaques()
         {
+            LoadingIndicator.Visibility = Visibility.Visible;
             Uri uri = new Uri(URL_DESTAQUES, UriKind.Absolute);
 
             var request = (HttpWebRequest)WebRequest.Create(uri);
@@ -121,6 +126,7 @@ namespace CartolaUWP
                     this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
                         this.DataContext = PosRodadaDestaque;
+                        LoadingIndicator.Visibility = Visibility.Collapsed;
                     }).AsTask().Wait();
                 }
             },
@@ -129,6 +135,7 @@ namespace CartolaUWP
 
         private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            this.DataContext = null;
             var pivot = sender as Pivot;
             var item = pivot.SelectedItem as PivotItem;
 

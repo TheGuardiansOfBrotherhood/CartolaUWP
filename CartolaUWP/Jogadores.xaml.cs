@@ -96,6 +96,7 @@ namespace CartolaUWP
 
         private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            this.DataContext = null;
             var pivot = sender as Pivot;
             var item = pivot.SelectedItem as PivotItem;
 
