@@ -15,7 +15,7 @@
                 <TextBlock Foreground="White" Margin="0,15,0,15" Text="CartolaFC"></TextBlock>
             </StackPanel>
 
-            <Border Width="100" Height="100" Margin="15">
+            <Border Width="60" Height="60" Margin="15">
                 <Border.Background>
                     <ImageBrush x:Name="Escudo" />
                 </Border.Background>
@@ -23,11 +23,11 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <StackPanel Orientation="Vertical">
                     
-                    <TextBlock x:Name="Clube"  Margin="5" FontWeight="Bold"  HorizontalAlignment="Center"/>
-                    <TextBlock Text="Nome Completo" HorizontalAlignment="Center"/>
-                    <TextBlock x:Name="NomeCompleto"  Margin="5" FontWeight="Bold"   HorizontalAlignment="Center"/>
-                    <TextBlock Text="Posição do jogador" HorizontalAlignment="Center"/>
-                    <TextBlock x:Name="Posicao" Margin="5" FontWeight="Bold"  HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="Clube" FontWeight="Bold" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="16"/>
+                    <TextBlock Text="Nome Completo" HorizontalAlignment="Center" TextWrapping="Wrap" FontWeight="Bold" FontSize="12" Margin="0, 5, 0, 0"/>
+                    <TextBlock x:Name="NomeCompleto" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="12"/>
+                    <TextBlock Text="Posição do jogador" HorizontalAlignment="Center" TextWrapping="Wrap" FontWeight="Bold" FontSize="12" Margin="0, 5, 0, 0"/>
+                    <TextBlock x:Name="Posicao" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="12"/>
                 </StackPanel>
             </StackPanel>
 
