@@ -120,6 +120,7 @@
     </Compile>
     <Compile Include="Partidas.cs" />
     <Compile Include="Patricinadores.cs" />
+    <Compile Include="Pontuados.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="MitoRodada.cs" />
     <Compile Include="Partida.cs" />

@@ -23,21 +23,22 @@ namespace CartolaUWP
 
     public sealed partial class Jogadores : Page
     {
+        private const string URL_DESTAQUES = "http://api.cartolafc.globo.com/mercado/destaques";
+        private const string URL_ATLETAS = "https://api.cartolafc.globo.com/atletas/mercado";
+
+        private List<MercadoDestaque> MercadoDestaqueList = new List<MercadoDestaque>();
         private List<Atleta> Atletas = new List<Atleta>();
 
-        List<MercadoDestaque> MercadoDestaqueList = new List<MercadoDestaque>();
-      
         public Jogadores()
         {
-            
             this.InitializeComponent();
             LoadAtleta();
         }
 
         public void LoadAtleta()
         {
-            string url = "http://api.cartolafc.globo.com/mercado/destaques";
-            Uri uri = new Uri(url, UriKind.Absolute);
+            LoadingIndicator.Visibility = Visibility.Visible;
+            Uri uri = new Uri(URL_DESTAQUES, UriKind.Absolute);
 
             var request = (HttpWebRequest)WebRequest.Create(uri);
             request.Method = "GET";
@@ -56,6 +57,7 @@ namespace CartolaUWP
                     this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
                         this.DataContext = data;
+                        LoadingIndicator.Visibility = Visibility.Collapsed;
                     }).AsTask().Wait();
                 }
             },
@@ -64,8 +66,8 @@ namespace CartolaUWP
 
         public void LoadAllAtleta()
         {
-            string url = "https://api.cartolafc.globo.com/atletas/mercado";
-            Uri uri = new Uri(url, UriKind.Absolute);
+            LoadingIndicator.Visibility = Visibility.Visible;
+            Uri uri = new Uri(URL_ATLETAS, UriKind.Absolute);
 
             var request = (HttpWebRequest)WebRequest.Create(uri);
             request.Method = "GET";
@@ -79,18 +81,18 @@ namespace CartolaUWP
                 if (stream != null)
                 {
                     var serializer = new DataContractJsonSerializer(typeof(Atletas));
-                    var data = (Atletas)serializer.ReadObject(stream);
+                    Atletas data = (Atletas)serializer.ReadObject(stream);
                                       
                     this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
-                        this.DataContext = data.AtletaList;
                         this.Atletas = data.AtletaList;
+                        this.DataContext = data.AtletaList;
+                        LoadingIndicator.Visibility = Visibility.Collapsed;
                     }).AsTask().Wait();
                 }
             },
             request);
         }
-
 
         private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -99,20 +101,17 @@ namespace CartolaUWP
 
             if (item.Name == "Escalacoes")
             {
-                this.DataContext = null;
                 this.LoadAtleta();
             }
             else if (item.Name == "TodosAtletas")
             {
-                this.DataContext = null;
                 this.LoadAllAtleta();
             }
-            
         }
-
 
         private void SearchJogadores(object sender, RoutedEventArgs e)
         {
+            LoadingIndicator.Visibility = Visibility.Visible;
             var Search = SearchKey.Text;
 
             if (Search != null && this.Atletas != null)
@@ -123,6 +122,7 @@ namespace CartolaUWP
                 });
                 this.DataContext = SearchList;
             }
+            LoadingIndicator.Visibility = Visibility.Collapsed;
         }
     }
 }
