@@ -23,7 +23,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="Patrocionadores" FontFamily="Segoe MDL2 Assets" Content="&#xE19F;"
-                    Width="50" Height="50" Background="Transparent" />
+                    Width="50" Height="50" Background="Transparent" Click="Patrocionadores_Click" />
                     <TextBlock Text="Patrocionadores" FontSize="18" VerticalAlignment="Center" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">

@@ -38,5 +38,10 @@ namespace CartolaUWP
         {
             contentFrame.Navigate(typeof(ClubesParticipantes));
         }
+
+        private void Patrocionadores_Click(object sender, RoutedEventArgs e)
+        {
+            contentFrame.Navigate(typeof(ListarPatrocinadores));
+        }
     }
 }
